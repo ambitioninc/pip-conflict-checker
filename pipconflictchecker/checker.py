@@ -64,7 +64,7 @@ class Checker(object):
 
         # Find any requirement conflicts
         conflicts = []
-        for project_name, specs in requirement_versions.iteritems():
+        for project_name, specs in requirement_versions.items():
             # If this requirement is not in the installed versions, just continue
             if project_name not in installed_versions:
                 continue
@@ -96,10 +96,10 @@ def main():
     checker = Checker()
     conflicts = checker.get_conflicts()
     if conflicts:
-        print '-' * 50
-        print ' Conflicts Detected'
-        print '-' * 50
+        print('-' * 50)
+        print(' Conflicts Detected')
+        print('-' * 50)
         for conflict in conflicts:
-            print ' - {project_name}({installed_version}) {comparison}{expected_version}'.format(**conflict.__dict__)
+            print(' - {project_name}({installed_version}) {comparison}{expected_version}'.format(**conflict.__dict__))
         return 1
     return 0
