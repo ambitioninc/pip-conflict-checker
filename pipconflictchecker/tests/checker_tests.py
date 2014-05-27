@@ -63,12 +63,17 @@ class CheckerTest(TestCase):
         mock_installed.return_value = {
             'one': '1.0',
             'two': '2.0',
+            'three': '3.0'
         }
 
         # Create some fake requirements
         mock_requirement.return_value = {
-            'one': [('>=', '1.0')],
-            'two': [('>=', '2.0')]
+            'one': {
+                'three': [('>=', '1.0')]
+            },
+            'two': {
+                'three': [('>=', '2.0')]
+            }
         }
 
         checker = Checker()
@@ -87,8 +92,12 @@ class CheckerTest(TestCase):
 
         # Create some fake requirements
         mock_requirement.return_value = {
-            'one': [('>=', '2.0')],
-            'two': [('>=', '3.0')]
+            'one': {
+                'three': [('>=', '2.0')]
+            },
+            'two': {
+                'three': [('>=', '3.0')]
+            }
         }
 
         # Create the checker and get the conflicts
@@ -110,8 +119,12 @@ class CheckerTest(TestCase):
 
         # Create some fake requirements
         mock_requirement.return_value = {
-            'one': [('<=', '0.9')],
-            'two': [('<=', '1.9')]
+            'one': {
+                'three': [('<=', '0.9')]
+            },
+            'two': {
+                'three': [('<=', '1.9')]
+            }
         }
 
         # Create the checker and get the conflicts
@@ -133,8 +146,12 @@ class CheckerTest(TestCase):
 
         # Create some fake requirements
         mock_requirement.return_value = {
-            'one': [('!=', '1.0')],
-            'two': [('!=', '2.0')]
+            'one': {
+                'three': [('!=', '1.0')]
+            },
+            'two': {
+                'three': [('!=', '2.0')]
+            }
         }
 
         # Create the checker and get the conflicts
@@ -156,7 +173,9 @@ class CheckerTest(TestCase):
 
         # Create some fake requirements
         mock_requirement.return_value = {
-            'four': ['==', '1.0']
+            'four': {
+                'three': ['==', '1.0']
+            }
         }
 
         # Create the checker and get the conflicts
@@ -181,8 +200,12 @@ class CheckerTest(TestCase):
 
         # Create some fake requirements
         mock_requirement.return_value = {
-            'one': [('>=', '2.0')],
-            'two': [('>=', '3.0')]
+            'one': {
+                'three': [('>=', '2.0')]
+            },
+            'two': {
+                'three': [('>=', '3.0')]
+            }
         }
 
         # Assert we get a proper error return code
