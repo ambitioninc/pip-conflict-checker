@@ -2,6 +2,11 @@
 import multiprocessing
 assert multiprocessing
 
+
+import os
+from os.path import dirname
+
+
 import re
 from setuptools import setup
 
@@ -17,7 +22,7 @@ def get_version():
     """
     Extracts the version number from the version.py file.
     """
-    VERSION_FILE = 'version.py'
+    VERSION_FILE = os.path.join(dirname(__file__), 'version.py')
     mo = re.search(r'^__version__ = [\'"]([^\'"]*)[\'"]', open(VERSION_FILE, 'rt').read(), re.M)
     if mo:
         return mo.group(1)
