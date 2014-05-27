@@ -25,7 +25,7 @@ def get_version():
         raise RuntimeError('Unable to find version string in {0}.'.format(VERSION_FILE))
 
 setup(
-    name='pipconflictchecker',
+    name='pip-conflict-checker',
     version=get_version(),
     description='A tool that checks installed packages against all package requirements for version conflicts.',
     long_description=get_long_description(),
