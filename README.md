@@ -6,7 +6,7 @@ A tool that checks installed packages against all package requirements to ensure
 
 ## Installation
 ```
-pip install pipconflictchecker
+pip install pip-conflict-checker
 ```
 
 ### Usage
