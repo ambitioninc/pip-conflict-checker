@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ambitioninc/pip-conflict-checker.png)](https://travis-ci.org/ambitioninc/pip-conflict-checker)
 pip-conflict-checker
 ====================
 
