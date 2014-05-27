@@ -3,11 +3,6 @@ import multiprocessing
 assert multiprocessing
 
 
-import os
-from os.path import dirname
-
-
-import re
 from setuptools import setup
 
 
@@ -18,20 +13,9 @@ def get_long_description():
     return desc
 
 
-def get_version():
-    """
-    Extracts the version number from the version.py file.
-    """
-    VERSION_FILE = os.path.join(dirname(__file__), 'version.py')
-    mo = re.search(r'^__version__ = [\'"]([^\'"]*)[\'"]', open(VERSION_FILE, 'rt').read(), re.M)
-    if mo:
-        return mo.group(1)
-    else:
-        raise RuntimeError('Unable to find version string in {0}.'.format(VERSION_FILE))
-
 setup(
     name='pip-conflict-checker',
-    version=get_version(),
+    version='0.1',
     description='A tool that checks installed packages against all package requirements for version conflicts.',
     long_description=get_long_description(),
     classifiers=[
