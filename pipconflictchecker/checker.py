@@ -105,7 +105,12 @@ def main():
         print(' Conflicts Detected')
         print('-' * 50)
         for conflict in conflicts:
-            print(' - {project_name}({installed_version}) {required_project_name}({comparison}{expected_version})'.format(
+            output_string = (
+                ' - ',
+                '{project_name}({installed_version}) ',
+                '{required_project_name}({comparison}{expected_version})'
+            )
+            print(''.join(output_string).format(
                 **conflict.__dict__
             ))
         return 1
