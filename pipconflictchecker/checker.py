@@ -1,6 +1,5 @@
 import pip
 from pkg_resources import parse_version
-from pprint import pprint
 
 
 class Conflict(object):
