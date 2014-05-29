@@ -121,6 +121,15 @@ class ValidatorTest(TestCase):
         # Validate the number of exacts
         self.assertEqual(len(excludes), 1)
 
+    def test_in_ranges_no_ranges(self):
+        installed_version = '2.0'
+        specs = [
+        ]
+        validator = Validator(installed_version, specs)
+
+        # Validate we are in the range
+        self.assertTrue(validator.in_ranges())
+
     def test_in_ranges_true_no_max_non_edge(self):
         installed_version = '2.0'
         specs = [
