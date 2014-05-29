@@ -55,6 +55,10 @@ class Validator(object):
         # Get the ranges
         ranges = self.get_required_version_ranges()
 
+        # If there are no ranges return true
+        if not len(ranges):
+            return True
+
         # Set the default to false
         in_ranges = False
 
