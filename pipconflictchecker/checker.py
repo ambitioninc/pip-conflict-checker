@@ -273,7 +273,6 @@ class Checker(object):
 def main():
     checker = Checker()
     conflicts = checker.get_conflicts()
-    pprint(checker.get_requirement_versions())
     if conflicts:
         print('-' * 50)
         print(' Conflicts Detected')
