@@ -132,7 +132,6 @@ class Validator(object):
         # Loop over all the required specs and calculate the ranges
         for spec in self.required_version_specs:
             comparison = spec[0]
-            version = spec[1]
 
             # Check if this should be the max
             if comparison in ['<=', '<']:
