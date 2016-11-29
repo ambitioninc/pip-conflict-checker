@@ -4,8 +4,10 @@ python:
   - '3.4'
   - '3.5'
 install:
-  - 'pip install -r requirements.txt'
+  - pip install -q coverage flake8
+before_script:
+  - psql -c 'CREATE DATABASE smart_manager;' -U postgres
 script:
-  - find pipconflictchecker | grep .py$ | grep -v __init__.py | xargs pyflakes
-  - find pipconflictchecker | grep .py$ | xargs pep8 --max-line-length=120
-  - nosetests --cover-branches --with-coverage --cover-min-percentage=100 --cover-package=pipconflictchecker
+  - flake8 .
+  - coverage run setup.py test
+  - coverage report --fail-under=100
