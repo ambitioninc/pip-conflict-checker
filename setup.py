@@ -15,7 +15,7 @@ def get_long_description():
 
 setup(
     name='pip-conflict-checker',
-    version='0.4',
+    version='0.4.0',
     description='A tool that checks installed packages against all package requirements for version conflicts.',
     long_description=get_long_description(),
     classifiers=[
