@@ -1,9 +1,8 @@
+from setuptools import setup
+
 # import multiprocessing to avoid this bug (http://bugs.python.org/issue15881#msg170215)
 import multiprocessing
 assert multiprocessing
-
-
-from setuptools import setup
 
 
 def get_long_description():
@@ -31,7 +30,13 @@ setup(
     author_email='opensource@ambition.com',
     url='https://github.com/ambitioninc/pip-conflict-checker',
     license='MIT',
-    install_requires=['pip>=1.4.1'],
+    install_requires=[
+        'pip>=1.4.1',
+        'nose>=1.3.0',
+        'mock>=1.0.1',
+        'flake8',
+        'coverage'
+    ],
     packages=['pipconflictchecker'],
     entry_points={
         'console_scripts': [
@@ -41,5 +46,10 @@ setup(
     include_package_data=True,
     zip_safe=False,
     test_suite='nose.collector',
-    tests_require=['nose>=1.3.0', 'mock>=1.0.1'],
+    tests_require=[
+        'nose>=1.3.0',
+        'mock>=1.0.1',
+        'flake8',
+        'coverage'
+    ],
 )
