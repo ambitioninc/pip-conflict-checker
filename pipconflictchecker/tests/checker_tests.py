@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from mock import patch, Mock
 from pip._vendor.pkg_resources import Distribution, Requirement
 from unittest import TestCase
@@ -315,10 +317,9 @@ class CheckerTest(TestCase):
     """
     expected_distributions = [
         'coverage',
-        'pep8',
+        'flake8',
         'nose',
         'mock',
-        'pyflakes'
     ]
 
     def test_get_requirement_versions(self):
