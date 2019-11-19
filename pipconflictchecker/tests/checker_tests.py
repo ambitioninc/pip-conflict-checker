@@ -328,7 +328,7 @@ class CheckerTest(TestCase):
         for dist in self.expected_distributions:
             self.assertIn(dist, distributions)
 
-    @patch('pipconflictchecker.checker.pip.get_installed_distributions')
+    @patch('pipconflictchecker.checker.get_installed_distributions')
     def test_get_requirement_versions_with_requirements(self, mock_get_installed_dists):
         # Create some fake requirements
         mock_req = Mock(Requirement)
