@@ -13,7 +13,7 @@ install:
   - virtualenv --no-site-packages venv-pip-post-10
   - venv-pip-post-10/bin/pip install -q coverage flake8 virtualenv "pip==19.3.1"
 script:
-  - flake8 .
+  - flake8 pipconflictchecker/
   # Test it with pip <= 10.0.0
   - venv-pip-pre-10/bin/coverage run setup.py test
   - venv-pip-pre-10/bin/coverage report --fail-under=100
