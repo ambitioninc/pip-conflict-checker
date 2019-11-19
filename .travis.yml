@@ -9,9 +9,9 @@ python:
 install:
   - pip install flake8
   - virtualenv --no-site-packages venv-pip-pre-10
-  - venv-pip-pre-10/bin/pip install -q coverage flake8 virtualenv "pip==9.0.0"
+  - venv-pip-pre-10/bin/pip install -q coverage flake8 virtualenv nose mock "pip==9.0.0"
   - virtualenv --no-site-packages venv-pip-post-10
-  - venv-pip-post-10/bin/pip install -q coverage flake8 virtualenv "pip==19.3.1"
+  - venv-pip-post-10/bin/pip install -q coverage flake8 virtualenv nose mock "pip==19.3.1"
 script:
   - flake8 pipconflictchecker/
   # Test it with pip <= 10.0.0
