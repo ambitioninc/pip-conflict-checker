@@ -5,6 +5,7 @@ python:
   - '3.5'
   - '3.6'
 install:
+  - pip install flake8
   - virtualenv --no-site-packages venv-pip-pre-10
   - venv-pip-pre-10/bin/pip install -q coverage flake8 virtualenv "pip==9.0.0"
   - virtualenv --no-site-packages venv-pip-post-10
