@@ -4,12 +4,12 @@ from __future__ import unicode_literals
 from pkg_resources import parse_version
 
 try:
-    from pip import get_installed_distributions # pragma: no cover
-except ImportError: # pragma: no cover
+    from pip import get_installed_distributions  # pragma: no cover
+except ImportError:  # pragma: no cover
     # pip >= 10.0.0
-    from pkg_resources import working_set # pragma: no cover
+    from pkg_resources import working_set  # pragma: no cover
 
-    def get_installed_distributions(): # pragma: no cover
+    def get_installed_distributions():  # pragma: no cover
         return working_set
 
 
