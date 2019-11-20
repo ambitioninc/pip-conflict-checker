@@ -4,9 +4,19 @@ python:
   - '3.4'
   - '3.5'
   - '3.6'
+  - '3.7'
+  - '3.8'
 install:
-  - pip install -q coverage flake8
+  - pip install flake8
+  - virtualenv --no-site-packages venv-pip-pre-10
+  - venv-pip-pre-10/bin/pip install -q coverage flake8 virtualenv nose mock "pip==9.0.0"
+  - virtualenv --no-site-packages venv-pip-post-10
+  - venv-pip-post-10/bin/pip install -q coverage flake8 virtualenv nose mock "pip==19.1.1"
 script:
-  - flake8 .
-  - coverage run setup.py test
-  - coverage report --fail-under=100
+  - flake8 pipconflictchecker/
+  # Test it with pip <= 10.0.0
+  - venv-pip-pre-10/bin/coverage run setup.py test
+  - venv-pip-pre-10/bin/coverage report --fail-under=100
+  # Test it with pip >= 10.0.0 (aka latest version)
+  - venv-pip-post-10/bin/coverage run setup.py test
+  - venv-pip-post-10/bin/coverage report --fail-under=100
